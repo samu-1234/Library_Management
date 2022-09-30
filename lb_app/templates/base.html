@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block head %}
+<section class="container" >
+    <div class="row justify-content-around mt-5">
+        <div class="col-sm-8">
+               <h3>CRUD OPERATIONS ON LIBRARY MANAGEMENT SYSTEM</h3>
+        </div>
+    </div>
+</section>
+{% endblock head %}
+
+
+{% block content %}
+<body>
+<section class="container">
+    <div class="row justify-content-around mt-3">
+        <div class="col-sm-8">
+             <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>publisher</th>
+                    <th>category</th>
+                    <th>change <th>
+
+
+                </tr>
+                {% for i in data %}
+                <tr class="active">
+                    <td>{{i.id}}</td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.publisher}}</td>
+                    <td>{{i.category}}</td>
+                    <td>
+                        <a href="{%url 'deletion' i.id %}">Delete</a>
+                        <a href="{%url 'edition' i.id %}">Edit</a>
+
+
+                    </td>
+                </tr>
+               {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="container" >
+    <div class="row justify-content-around mt-3">
+        <div class="col-sm-1" >
+<!--            <button type="submit">Add New Book</button>-->
+            <a href="{% url 'insert' %}" class="btn-btn-primary float end">Add Book</button>
+        </div>
+    </div>
+
+</section>
+
+</body>
+{% endblock content %}
